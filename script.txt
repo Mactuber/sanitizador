@@ -1,0 +1,25 @@
+# Solicita la ruta del archivo de entrada
+$inputFilePath = Read-Host "Introduce la ruta del archivo TXT con las URLs"
+
+# Lee el contenido del archivo
+$urls = Get-Content -Path $inputFilePath
+
+# Función para ofuscar las URLs
+function Ofuscar-URL {
+    param (
+        [string]$url
+    )
+    $url -replace ":", "[:]" -replace "\.", "[.]" -replace "/", "[/]" -replace "-", "[-]"
+}
+
+# Ofusca cada URL en el archivo
+$urlsOfuscadas = $urls | ForEach-Object { Ofuscar-URL $_ }
+
+# Genera el nombre del archivo de salida con la fecha de hoy
+$outputFileName = "urls_ofuscadas_$(Get-Date -Format 'yyyyMMdd').txt"
+$outputFilePath = Join-Path -Path (Get-Location) -ChildPath $outputFileName
+
+# Escribe las URLs ofuscadas en el archivo de salida, una por línea
+$urlsOfuscadas | Out-File -FilePath $outputFilePath -Encoding utf8
+
+Write-Host "Las URLs ofuscadas se han guardado en: $outputFilePath"

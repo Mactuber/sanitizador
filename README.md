@@ -15,7 +15,7 @@ Si deseas ejecutar este proyecto en tu máquina local, sigue estos pasos:
    cd sanitizador
 3. Para usarlo debes de tener un txt con las urls o IPs sin ofuscar.
 
-5. Ahora podrás ejecutar el script copiando y pgándolo en el terminal indicando el nombre del txt que quieres ofuscar.
+5. Ahora podrás ejecutar el script copiando y pegando en el terminal de powershell indicando el nombre del txt que quieres ofuscar.
 
 ## Ejemplo Práctico:
 ![Imagen 1](image/imagen_prac.png)
